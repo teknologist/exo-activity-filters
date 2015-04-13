@@ -25,12 +25,13 @@ import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent;
 
 /**
- * Created by The eXo Platform SAS
- * Mar 13, 2014  
+ * Created by Eric Taïeb Walch for Teknologism SAS
+ * www.teknologism.com
+ * April 13, 2015
  */
 /**
- * This listener override org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent
- * to don't update activities when user join/left space (ORG-625)
+ * This listener overrides the default SpaceActivityPublisher
+ * to don't show activities when users join/leave a space
  *
  */
 
@@ -44,7 +45,7 @@ public class CustomSpaceActivityPublisher extends SpaceActivityPublisher {
   public CustomSpaceActivityPublisher(InitParams params,
       ActivityManager activityManager, IdentityManager identityManager) {
     super(params, activityManager, identityManager);
-    // TODO Auto-generated constructor stub
+    LOG.info("CustomSpaceActivityPublisher initialized");
   }
 
   /**

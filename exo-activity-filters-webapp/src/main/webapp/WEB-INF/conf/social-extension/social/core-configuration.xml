@@ -43,7 +43,7 @@
     <init-params>
       <value-param>
         <name>pool-size</name>
-        <value>10</value>
+        <value>1</value>
       </value-param>
       <value-param>
         <name>max-pool-size</name>
@@ -521,7 +521,7 @@
 
   <component>
     <key>org.exoplatform.social.core.application.RelationshipPublisher</key>
-    <type>com.teknologism.exo.addons.customization.listener.CustomRelationshipPublisher</type>
+    <type>com.teknologism.exo.addons.customization.listener.RelationshipPublisher</type>
   </component>
 
   <component>
