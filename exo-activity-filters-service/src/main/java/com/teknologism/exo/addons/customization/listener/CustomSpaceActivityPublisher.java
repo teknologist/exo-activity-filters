@@ -16,8 +16,10 @@
  */
 package com.teknologism.exo.addons.customization.listener;
 
-import org.exoplatform.social.core.application.SpaceActivityPublisher;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.exoplatform.social.core.application.SpaceActivityPublisher;
 import org.exoplatform.social.core.manager.ActivityManager;
 import org.exoplatform.social.core.manager.IdentityManager;
 import org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent;
@@ -31,7 +33,14 @@ import org.exoplatform.social.core.space.spi.SpaceLifeCycleEvent;
  * to don't update activities when user join/left space (ORG-625)
  *
  */
+
+
 public class CustomSpaceActivityPublisher extends SpaceActivityPublisher {
+  /**
+   * The Logger.
+   */
+  private static final Log LOG = ExoLogger.getExoLogger(CustomSpaceActivityPublisher.class);
+
   public CustomSpaceActivityPublisher(InitParams params,
       ActivityManager activityManager, IdentityManager identityManager) {
     super(params, activityManager, identityManager);
@@ -43,7 +52,7 @@ public class CustomSpaceActivityPublisher extends SpaceActivityPublisher {
    */
   @Override
   public void joined(SpaceLifeCycleEvent event) {
-   //Do nothing
+    LOG.info("CustomSpaceActivityPublisher: user " + event.getTarget() + " joined space " + event.getSpace().getDisplayName());
   }
 
   /**
@@ -51,6 +60,6 @@ public class CustomSpaceActivityPublisher extends SpaceActivityPublisher {
    */
   @Override
   public void left(SpaceLifeCycleEvent event) {
-    //Do nothing
+    LOG.info("CustomSpaceActivityPublisher: user " + event.getTarget() + " has left of space " + event.getSpace().getDisplayName());
   }
 }
