@@ -43,11 +43,11 @@
     <init-params>
       <value-param>
         <name>pool-size</name>
-        <value>1</value>
+        <value>10</value>
       </value-param>
       <value-param>
         <name>max-pool-size</name>
-        <value>1</value>
+        <value>20</value>
       </value-param>
       <value-param>
         <name>async-mode</name>
@@ -55,7 +55,7 @@
       </value-param>
       <value-param>
         <name>thread-priority</name>
-        <value>1</value><!--10: HIGH, 5: NORMAL; 1: LOW-->
+        <value>7</value><!--10: HIGH, 5: NORMAL; 1: LOW-->
       </value-param>
     </init-params>
   </component>
@@ -521,7 +521,7 @@
 
   <component>
     <key>org.exoplatform.social.core.application.RelationshipPublisher</key>
-    <type>com.teknologism.exo.addons.customization.listener.RelationshipPublisher</type>
+    <type>com.teknologism.exo.addons.customization.listener.CustomRelationshipPublisher</type>
   </component>
 
   <component>
