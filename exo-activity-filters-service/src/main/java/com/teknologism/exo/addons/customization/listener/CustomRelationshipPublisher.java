@@ -91,9 +91,11 @@ public class CustomRelationshipPublisher extends RelationshipListenerPlugin {
     public void confirmed(RelationshipEvent event) {
         Relationship relationship = event.getPayload();
         try {
+
             Identity sender = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getSender().getRemoteId(), true);
             Identity receiver = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getReceiver().getRemoteId(), true);
-            LOG.info("CustomRelationshipPublisher: user " + sender.getId() + " connected with " + receiver.getId());
+            LOG.info("CustomRelationshipPublisher: user " + sender.getProfile().getFullName() + " connected with " + receiver.getProfile().getFullName());
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -107,17 +109,46 @@ public class CustomRelationshipPublisher extends RelationshipListenerPlugin {
 
     @Override
     public void removed(RelationshipEvent event) {
-        LOG.info("CustomRelationshipPublisher: removed");
+        Relationship relationship = event.getPayload();
+                try {
+
+                    Identity sender = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getSender().getRemoteId(), true);
+                    Identity receiver = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getReceiver().getRemoteId(), true);
+                    LOG.info("CustomRelationshipPublisher: user " + sender.getProfile().getFullName() + " disconnected from " + receiver.getProfile().getFullName());
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
     }
 
     @Override
     public void requested(RelationshipEvent event) {
-        LOG.info("CustomRelationshipPublisher: requested");
+        Relationship relationship = event.getPayload();
+                     try {
+
+                         Identity sender = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getSender().getRemoteId(), true);
+                         Identity receiver = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getReceiver().getRemoteId(), true);
+                         LOG.info("CustomRelationshipPublisher: user " + sender.getProfile().getFullName() + " request connection with " + receiver.getProfile().getFullName());
+
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
     }
 
     @Override
     public void denied(RelationshipEvent event) {
-        LOG.info("CustomRelationshipPublisher: denied");
+        Relationship relationship = event.getPayload();
+                     try {
+
+                         Identity sender = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getSender().getRemoteId(), true);
+                         Identity receiver = identityManager.getOrCreateIdentity(OrganizationIdentityProvider.NAME, relationship.getReceiver().getRemoteId(), true);
+                         LOG.info("CustomRelationshipPublisher: user " + sender.getProfile().getFullName() + " denied connection to " + receiver.getProfile().getFullName());
+
+                     } catch (Exception e) {
+                         e.printStackTrace();
+                     }
     }
 
 
