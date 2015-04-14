@@ -26,11 +26,11 @@ import java.util.Map;
  * Date: 13/04/15
  * Time: 15:24
  */
-public class RelationshipPublisher extends RelationshipListenerPlugin {
+public class CustomRelationshipPublisher extends RelationshipListenerPlugin {
     /**
      * The Logger.
      */
-    private static final Log LOG = ExoLogger.getExoLogger(RelationshipPublisher.class);
+    private static final Log LOG = ExoLogger.getExoLogger(CustomRelationshipPublisher.class);
 
     public static enum TitleId {
         CONNECTION_REQUESTED,
@@ -50,7 +50,7 @@ public class RelationshipPublisher extends RelationshipListenerPlugin {
 
     private IdentityManager identityManager;
 
-    public RelationshipPublisher(InitParams params, ActivityManager activityManager, IdentityManager identityManager) {
+    public CustomRelationshipPublisher(InitParams params, ActivityManager activityManager, IdentityManager identityManager) {
 
         this.activityManager = activityManager;
         this.identityManager = identityManager;

@@ -521,7 +521,7 @@
 
   <component>
     <key>org.exoplatform.social.core.application.RelationshipPublisher</key>
-    <type>com.teknologism.exo.addons.customization.listener.RelationshipPublisher</type>
+    <type>org.exoplatform.social.core.application.RelationshipPublisher</type>
   </component>
 
   <component>
