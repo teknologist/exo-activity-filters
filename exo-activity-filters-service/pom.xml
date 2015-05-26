@@ -33,7 +33,7 @@
     <dependency>
       <groupId>org.exoplatform.social</groupId>
       <artifactId>social-component-webui</artifactId>
-      <version>4.1.0</version>
+      <version>4.2.x-SNAPSHOT</version>
 			<scope>provided</scope>
     </dependency>
   </dependencies>
